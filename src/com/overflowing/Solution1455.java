@@ -5,20 +5,17 @@ import java.util.Map;
 
 public class Solution1455 {
     public int isPrefixOfWord(String sentence, String searchWord) {
-        TreeNode root = new TreeNode('\n');
-        TreeNode curr = root;
+        TreeNode<Character> root = new TreeNode<>('\n');
+        TreeNode<Character> curr = root;
         for(char c: sentence.toCharArray()) {
             if(c == ' ') {
                 curr = root;
                 continue;
             }
-            if(curr.children.containsKey(c)) {
-                curr = curr.children.get(c);
+            if (!curr.children.containsKey(c)) {
+                curr.children.put(c, new TreeNode<>(c));
             }
-            else {
-                curr.children.put(c, new TreeNode(c));
-                curr = curr.children.get(c);
-            }
+            curr = curr.children.get(c);
         }
         curr = root;
         for(char c: searchWord.toCharArray()) {
@@ -58,14 +55,6 @@ public class Solution1455 {
         Solution1455 s = new Solution1455();
         int a = s.isPrefixOfWord1(sentence, searchWord);
         System.out.println(a);
-    }
-}
-class TreeNode {
-    public char val;
-    public Map<Character, TreeNode> children;
-    TreeNode(char c) {
-        this.val = c;
-        children = new HashMap<>();
     }
 }
 
