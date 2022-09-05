@@ -1,7 +1,6 @@
-package com.overflowing;
+package util;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.*;
 
 public class BinaryTreeNode<T> {
     public BinaryTreeNode<T> left;
@@ -35,8 +34,30 @@ public class BinaryTreeNode<T> {
         }
     }
 
+    @Override
+    public String toString() {
+        Queue<BinaryTreeNode<T>> q = new LinkedList<>();
+        q.add(this);
+        List<T> string = new ArrayList<>();
+        while(!q.isEmpty()) {
+            BinaryTreeNode<T> curr = q.remove();
+            if(curr == null) {
+                string.add(null);
+            }
+            else {
+                string.add(curr.val);
+                q.add(curr.left);
+                q.add(curr.right);
+            }
+        }
+        while(string.get(string.size()-1)==null)
+            string.remove(string.size()-1);
+        return string.toString();
+    }
+
     public static void main(String[] args) {
         Integer[] tree = {1, 2, null, 3};
         BinaryTreeNode<Integer> t = new BinaryTreeNode<>(tree);
+        System.out.println(t);
     }
 }

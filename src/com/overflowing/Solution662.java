@@ -1,6 +1,10 @@
 package com.overflowing;
 
+import util.BinaryTreeNode;
+
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution662 {
@@ -13,7 +17,7 @@ public class Solution662 {
         }
     }
     public int widthOfBinaryTree(BinaryTreeNode<Integer> root) {
-        Queue<Pair> q = new ArrayDeque<>();
+        Queue<Pair> q = new LinkedList<>();
         q.add(new Pair(0, root));
         q.add(new Pair(-1, null));
         int left=0, right, result=0;
