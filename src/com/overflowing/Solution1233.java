@@ -61,13 +61,14 @@ public class Solution1233 {
             System.out.println(ss);
         }
     }
-}
-class Trie1233 {
-    public HashMap<String, Trie1233> subTrie;
-    public String folder=null;
-    public Trie1233(){
-        subTrie = new HashMap<>();
-        folder=null;
-    }
-}
 
+    private static class Trie1233 {
+        public HashMap<String, Trie1233> subTrie;
+        public String folder=null;
+        public Trie1233(){
+            subTrie = new HashMap<>();
+            folder=null;
+        }
+    }
+
+}
