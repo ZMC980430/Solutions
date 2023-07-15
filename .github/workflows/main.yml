@@ -20,7 +20,5 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: 'Getting WARP+ Traffic'
-        env:
-          DEVICEID: ${{ secrets.DEVICEID }}      
+      - name: 'Getting WARP+ Traffic'  
         run: python warp.py
